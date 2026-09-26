@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D GLB AR Experience</title>
 
+  <!-- Google <model-viewer> Library -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f9;
+      font-family: sans-serif;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Styling for the custom AR launch button */
+    .ar-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+
+    .ar-button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <model-viewer
+    src="your-model.glb"
+    ios-src="your-model.usdz"
+    alt="3D model in AR"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    touch-action="pan-y"
+    auto-rotate
+    shadow-intensity="1">
+
+    <button slot="ar-button" class="ar-button">
+      View in your space 📱
+    </button>
+
+  </model-viewer>
+
+</body>
+</html>
